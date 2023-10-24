@@ -28,7 +28,7 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public List<Product> getAllTheProducts() {
         return productService.getAllProducts();
     }
@@ -40,7 +40,7 @@ public class ProductController {
     }
 
     @PostMapping("/new")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<String> saveProduct(@RequestBody Product product) {
         productService.saveProduct(product);
         return new ResponseEntity<>("Product added successfully", HttpStatus.CREATED);

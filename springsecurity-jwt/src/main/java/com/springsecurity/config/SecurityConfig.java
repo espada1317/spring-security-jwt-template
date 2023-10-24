@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .permitAll()
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/products/**")
+                .anyRequest()
                 .authenticated()
                 .and()
                 .sessionManagement()
